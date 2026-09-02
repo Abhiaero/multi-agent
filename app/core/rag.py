@@ -8,7 +8,7 @@ class RAGManager:
     def __init__(self):
         # Switched to Gemini Embeddings to avoid PyTorch Out-of-Memory (OOM) on free tiers (512MB RAM limit)
         self.embeddings = GoogleGenerativeAIEmbeddings(
-            model="models/embedding-001",
+            model="models/text-embedding-004",
             google_api_key=settings.gemini_api_key
         )
         self.persist_directory = settings.chroma_db_dir
