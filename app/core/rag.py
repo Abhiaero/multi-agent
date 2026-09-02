@@ -1,16 +1,14 @@
 import os
 from langchain_community.vectorstores import Chroma
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
 from langchain_core.documents import Document
 from app.core.config import settings
 
 class RAGManager:
     def __init__(self):
-        # Switched to Gemini Embeddings to avoid PyTorch Out-of-Memory (OOM) on free tiers (512MB RAM limit)
-        self.embeddings = GoogleGenerativeAIEmbeddings(
-            model="models/text-embedding-004",
-            google_api_key=settings.gemini_api_key
-        )
+        # Switched to FastEmbed for extremely fast, lightweight local embeddings 
+        # (Zero API limits, 100% free, and no PyTorch OOM errors)
+        self.embeddings = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
         self.persist_directory = settings.chroma_db_dir
         self._init_db()
 
