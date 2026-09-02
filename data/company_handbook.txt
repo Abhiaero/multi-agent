@@ -1,0 +1,16 @@
+# ACME Corp Employee Handbook
+
+## 1. Remote Work Policy
+At ACME Corp, we believe in flexibility. Employees are allowed to work remotely up to 3 days a week. Core hours are from 10:00 AM to 3:00 PM EST, during which everyone is expected to be available for meetings. The remaining 2 days should be spent in the office for collaborative work.
+
+## 2. Leave Policy (PTO)
+Employees accrue 20 days of Paid Time Off (PTO) per year. This includes vacation, personal days, and sick leave. PTO rolls over up to a maximum of 5 days into the next calendar year. To request leave, submit a request via the HR portal at least two weeks in advance for planned vacations. Sick leave should be communicated to your manager before 9:00 AM on the day of absence.
+
+## 3. Product Features
+Our flagship product, ACME Orchestrator, includes the following key features:
+- Multi-Agent Routing: Intelligently routes queries to specialized sub-agents.
+- Fallback System: Safely escalates to human agents when confidence is below 60%.
+- Real-time Analytics: Logs all interactions for offline evaluation using SQLite.
+
+## 4. Hardware Allowance
+Every new employee is eligible for a $1,000 hardware stipend to set up their home office. This stipend renews every 3 years. Valid expenses include monitors, ergonomic chairs, and standing desks.
