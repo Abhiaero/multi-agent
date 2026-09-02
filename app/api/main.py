@@ -1,5 +1,8 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 import time
+import os
 from langchain_core.messages import HumanMessage
 from app.models.state import ChatRequest, ChatResponse
 from app.agents.graph import agent_graph
@@ -8,6 +11,15 @@ from app.core.config import settings
 
 app = FastAPI(title=settings.app_name)
 
+# Mount the static directory to serve HTML/CSS/JS
+static_dir = os.path.join(os.path.dirname(__file__), "..", "static")
+os.makedirs(static_dir, exist_ok=True)
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
+
+@app.get("/")
+def read_root():
+    """Serves the frontend UI on the root path."""
+    return FileResponse(os.path.join(static_dir, "index.html"))
 @app.get("/health")
 def health_check():
     return {"status": "ok", "app": settings.app_name}

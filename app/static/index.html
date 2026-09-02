@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Agent AI Platform</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="sidebar-header">
+                <i data-lucide="cpu" class="icon-accent"></i>
+                <h2>Multi-Agent AI</h2>
+            </div>
+            
+            <div class="agent-stats">
+                <h3>Active Agents</h3>
+                <div class="agent-badge llm">
+                    <i data-lucide="message-square"></i> LLM Agent
+                </div>
+                <div class="agent-badge rag">
+                    <i data-lucide="database"></i> RAG Agent
+                </div>
+                <div class="agent-badge fallback">
+                    <i data-lucide="shield-alert"></i> Fallback Agent
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <p>Built with FastAPI & LangGraph</p>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-container">
+            <header class="chat-header glass-panel">
+                <div>
+                    <h1>Orchestration Hub</h1>
+                    <p class="subtitle">System is routing your queries in real-time.</p>
+                </div>
+                <button class="icon-btn" onclick="clearChat()">
+                    <i data-lucide="trash-2"></i>
+                </button>
+            </header>
+
+            <div class="messages-area" id="messagesArea">
+                <div class="message system-msg">
+                    <div class="msg-content">Welcome! I'm an orchestrated AI platform. Ask me a general question, or something about your specific documents.</div>
+                </div>
+            </div>
+
+            <div class="input-area glass-panel">
+                <input type="text" id="userInput" placeholder="Ask anything..." autocomplete="off">
+                <button id="sendBtn" class="send-btn">
+                    <i data-lucide="send"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
