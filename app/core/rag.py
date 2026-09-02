@@ -1,14 +1,15 @@
 import os
 from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_core.documents import Document
 from app.core.config import settings
 
 class RAGManager:
     def __init__(self):
-        # Using free HuggingFace embeddings running locally
-        self.embeddings = HuggingFaceEmbeddings(
-            model_name=settings.embedding_model
+        # Switched to Gemini Embeddings to avoid PyTorch Out-of-Memory (OOM) on free tiers (512MB RAM limit)
+        self.embeddings = GoogleGenerativeAIEmbeddings(
+            model="models/embedding-001",
+            google_api_key=settings.gemini_api_key
         )
         self.persist_directory = settings.chroma_db_dir
         self._init_db()
