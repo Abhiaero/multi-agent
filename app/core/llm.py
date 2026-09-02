@@ -8,9 +8,9 @@ def get_llm(temperature: float = 0.0) -> ChatGoogleGenerativeAI:
     if not settings.gemini_api_key:
         raise ValueError("GEMINI_API_KEY is not set in environment variables.")
 
-    # Using Gemini 1.5 Pro as requested (the current default/latest pro model in API)
+    # Using Gemini 1.5 Pro
     return ChatGoogleGenerativeAI(
-        model="gemini-1.5-pro-latest",
+        model="gemini-1.5-pro",
         temperature=temperature,
         google_api_key=settings.gemini_api_key,
         convert_system_message_to_human=True
